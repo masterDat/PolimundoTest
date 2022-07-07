@@ -4,9 +4,16 @@ namespace App\Http\Controllers\Country\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Country\Applications\GetCountry;
 
 class CountryController extends Controller
 {
+    private GetCountry $getCountry;
+    function __construct(GetCountry $_getCountry)
+    {
+        $this->getCountry = $_getCountry;
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,10 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $this->getCountry->getCountry();
+        return response([
+            'countries'=>$this->getCountry->countries
+        ]);
     }
 
     /**

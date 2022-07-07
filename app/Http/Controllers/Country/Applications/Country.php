@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Country\Applications;
 
-use App\Util\ORM;
+use App\Utils\ORM;
 
 Abstract class Country extends ORM
 {

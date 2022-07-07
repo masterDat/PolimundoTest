@@ -4,11 +4,16 @@ namespace App\Http\Controllers\People\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use  App\Http\Controllers\People\Applications\GetPeople;
+use App\Http\Controllers\People\Applications\GetPeople;
 
 class PeopleController extends Controller
 {
+    private GetPeople $getPeople;
+    function __construct(GetPeople $_getPeople)
+    {
+        $this->getPeople = $_getPeople;
 
+    }
 
     /**
      * Display a listing of the resource.
@@ -17,7 +22,10 @@ class PeopleController extends Controller
      */
     public function index()
     {
-        //
+        $this->getPeople->getPeople();
+        return response([
+            'people'=>$this->getPeople->peoples
+        ]);
     }
 
     /**

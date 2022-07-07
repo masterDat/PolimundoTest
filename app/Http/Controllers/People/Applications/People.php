@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\People\Applications;
 
-use App\Util\ORM;
+use App\Utils\ORM;
 
 Abstract class People extends ORM
 {
