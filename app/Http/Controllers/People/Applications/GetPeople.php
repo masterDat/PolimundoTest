@@ -13,4 +13,12 @@ class GetPeople extends People
         $this->peoples=$this->endConsult(2);
     }
 
+
+    public function getPeopleById($select = ['*'],$id)
+    {
+        $this->initConsult($select);
+        $this->sql->where('id',$id);
+        $this->people=$this->endConsult(1);
+    }
+
 }

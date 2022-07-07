@@ -56,7 +56,10 @@ class CountryController extends Controller
      */
     public function show($id)
     {
-        //
+        $this->getCountry->getCountryById(['*'],$id);
+        return response([
+            'country'=>$this->getCountry->country
+        ]);
     }
 
     /**

@@ -13,4 +13,11 @@ class GetCountry extends Country
         $this->countries=$this->endConsult(2);
     }
 
+    public function getCountryById($select = ['*'],$id)
+    {
+        $this->initConsult($select);
+        $this->sql->where('id',$id);
+        $this->country=$this->endConsult(1);
+    }
+
 }

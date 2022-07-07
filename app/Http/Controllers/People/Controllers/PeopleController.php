@@ -24,7 +24,7 @@ class PeopleController extends Controller
     {
         $this->getPeople->getPeople();
         return response([
-            'people'=>$this->getPeople->peoples
+            'peoples'=>$this->getPeople->peoples
         ]);
     }
 
@@ -57,7 +57,11 @@ class PeopleController extends Controller
      */
     public function show($id)
     {
-        //
+
+        $this->getPeople->getPeopleById(['*'],$id);
+        return response([
+            'people'=>$this->getPeople->people
+        ]);
     }
 
     /**
